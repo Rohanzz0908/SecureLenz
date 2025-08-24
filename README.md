@@ -69,9 +69,9 @@ main/
 ---
 
 ## 👥 Contributors
- 
-- [Aditya]([https://github.com/karthik](https://github.com/Aditya-Kumar24))
-- [Sachin]() 
+
+- [Aditya](https://github.com/Aditya-Kumar24) 
+- [Sachin](https://github.com/sachinkumar-git) 
 
 ---
 
