@@ -1,0 +1,42 @@
+# Secure Lens Pro - Enhanced Threat Database
+# Advanced phishing and malware domains for testing
+
+# Banking/Financial Phishing
+secure-banking-login.com
+account-verification-urgent.net
+paypal-security-update.org
+bank-account-suspended.info
+urgent-payment-required.com
+credit-card-verify.net
+financial-security-alert.org
+
+# Tech Company Impersonation
+apple-id-verification.net
+microsoft-support-urgent.com
+google-account-suspended.org
+amazon-account-locked.info
+facebook-security-check.net
+netflix-payment-update.com
+
+# Generic Phishing Patterns
+secure-login-now.com
+account-locked-urgent.net
+verify-identity-required.org
+suspended-account-restore.info
+limited-access-unlock.com
+security-verification-needed.net
+
+# Malware/Scam Sites
+free-antivirus-scan.com
+pc-speedup-download.net
+earn-money-fast-online.org
+weight-loss-miracle.info
+cryptocurrency-generator.com
+movie-downloads-free.net
+
+# Suspicious Domains for Testing
+test-phishing-site.com
+malware-example.net
+suspicious-domain.org
+threat-test-site.info
+phishing-demo.com

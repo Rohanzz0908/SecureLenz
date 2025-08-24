@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 360px;
+      padding: 20px;
+      background: linear-gradient(135deg, #1F2937, #111827);
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3B82F6, #10B981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .status {
+      background: linear-gradient(135deg, #374151, #1F2937);
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #4B5563;
+    }
+
+    .score-display {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .score-number {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .score-label {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 8px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+    }
+
+    .info-value {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, #6B7280, #4B5563);
+    }
+
+    .btn.secondary:hover {
+      box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+    }
+
+    .btn.danger {
+      background: linear-gradient(135deg, #EF4444, #DC2626);
+    }
+
+    .btn.danger:hover {
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      font-style: italic;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>🛡️ Secure Lens Pro</h2>
+    <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.7;">Advanced Web Security</p>
+  </div>
+
+  <div id="loading" class="loading">
+    🔍 Analyzing current page...
+  </div>
+
+  <div id="main-content" style="display: none;">
+    <div class="status">
+      <div class="score-display">
+        <div id="overall-score" class="score-number">-</div>
+        <div class="score-label">Overall Threat Score</div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <div id="phishing-score" class="info-value">-</div>
+          <div class="info-label">Phishing Risk</div>
+        </div>
+        <div class="info-item">
+          <div id="reputation-score" class="info-value">-</div>
+          <div class="info-label">Reputation</div>
+        </div>
+        <div class="info-item">
+          <div id="verdict" class="info-value">-</div>
+          <div class="info-label">Status</div>
+        </div>
+        <div class="info-item">
+          <div id="risk-level" class="info-value">-</div>
+          <div class="info-label">Risk Level</div>
+        </div>
+      </div>
+
+      <div style="font-size: 12px; opacity: 0.7; text-align: center;">
+        Domain: <span id="domain">-</span>
+      </div>
+    </div>
+
+    <button class="btn" id="analyze">🔍 Re-analyze Current Tab</button>
+    <button class="btn secondary" id="clear-cookies">🍪 Clear Domain Cookies</button>
+    <button class="btn secondary" id="options">⚙️ Settings & History</button>
+  </div>
+
+  <script src="../js/popup.js"></script>
+</body>
+</html>

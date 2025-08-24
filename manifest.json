@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Secure Lens Pro",
+  "version": "2.1.0",
+  "description": "Advanced web security extension with AI-powered threat detection and real-time phishing analysis",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "cookies",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "css": [
+        "css/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_icon": {
+      "16": "images/1.png",
+      "32": "images/2.png",
+      "48": "images/3.png",
+      "128": "images/4.png"
+    }
+  },
+  "options_page": "pages/options.html",
+  "icons": {
+     "16": "images/1.png",
+      "32": "images/2.png",
+      "48": "images/3.png",
+      "128": "images/4.png"
+    },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pages/warning.html",
+        "data/*"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ]
+}

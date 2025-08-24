@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Lens Pro Settings</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1F2937, #111827);
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      padding: 40px;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #3B82F6, #10B981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #374151, #1F2937);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #4B5563;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #3B82F6;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .section {
+      background: linear-gradient(135deg, #374151, #1F2937);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      border: 1px solid #4B5563;
+    }
+
+    .section h3 {
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F9FAFB;
+    }
+
+    .setting {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #4B5563;
+    }
+
+    .setting:last-child {
+      border-bottom: none;
+    }
+
+    .setting-info {
+      flex: 1;
+    }
+
+    .setting-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .setting-desc {
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .toggle {
+      position: relative;
+      width: 54px;
+      height: 28px;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #6B7280;
+      transition: 0.4s;
+      border-radius: 28px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #10B981;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 8px 8px 8px 0;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, #6B7280, #4B5563);
+    }
+
+    .btn.secondary:hover {
+      box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🛡️ Secure Lens Pro</h1>
+      <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.8;">Advanced Web Security Settings</p>
+    </div>
+
+    <div class="stats" id="stats-section">
+      <div class="stat-card">
+        <div class="stat-value" id="total-analyses">0</div>
+        <div class="stat-label">Total Analyses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="threats-blocked">0</div>
+        <div class="stat-label">Threats Blocked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="suspicious-detected">0</div>
+        <div class="stat-label">Suspicious Sites</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="domains-tracked">0</div>
+        <div class="stat-label">Domains Tracked</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>🔒 Security Settings</h3>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Auto Security Banner</div>
+          <div class="setting-desc">Show security analysis banner on every website</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="autoBanner">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Advanced Phishing Detection</div>
+          <div class="setting-desc">AI-powered phishing analysis with detailed scoring</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="phishingWarnings">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Real-time Threat Scoring</div>
+          <div class="setting-desc">Continuous threat assessment and reputation tracking</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="realTimeScoring">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Tracker Detection</div>
+          <div class="setting-desc">Identify and report tracking scripts and pixels</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="trackerHeuristics">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Blacklist Blocking</div>
+          <div class="setting-desc">Block access to known malicious websites</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="blacklistBlocking">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting">
+        <div class="setting-info">
+          <div class="setting-name">Typosquatting Detection</div>
+          <div class="setting-desc">Detect fake domains targeting popular brands</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="typosquattingDetection">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>⚡ Advanced Options</h3>
+      <button class="btn" onclick="loadStats()">🔄 Refresh Statistics</button>
+      <button class="btn secondary" onclick="clearAllData()">🗑️ Clear All Data</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; opacity: 0.6; font-size: 12px;">
+      Secure Lens Pro v2.0 - Advanced Web Security Extension
+    </div>
+  </div>
+
+  <script src="../js/options.js"></script>
+</body>
+</html>
